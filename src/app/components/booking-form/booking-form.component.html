@@ -1,0 +1,150 @@
+<form
+  [formGroup]="bookingForm"
+  (ngSubmit)="onSubmit()"
+  class="max-w-3xl mx-auto bg-[#fcfbfa] p-8 rounded-lg shadow-lg space-y-8"
+>
+  <h2 class="text-3xl font-semibold text-[#D4A7A7] text-center">
+    Book Your Appointment
+  </h2>
+
+  <!-- Name / Email / Phone -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <label class="flex flex-col">
+      <span class="text-sm font-medium text-[#D4A7A7]">Name</span>
+      <input
+        formControlName="name"
+        type="text"
+        placeholder="Your full name"
+        class="mt-1 p-2 border border-[#F3E8E8] rounded focus:outline-none focus:ring-2 focus:ring-[#D4A7A7]"
+      />
+    </label>
+
+    <label class="flex flex-col">
+      <span class="text-sm font-medium text-[#D4A7A7]">Email</span>
+      <input
+        formControlName="email"
+        type="email"
+        placeholder="you@example.com"
+        class="mt-1 p-2 border border-[#F3E8E8] rounded focus:outline-none focus:ring-2 focus:ring-[#D4A7A7]"
+      />
+    </label>
+
+    <label class="flex flex-col">
+      <span class="text-sm font-medium text-[#D4A7A7]">Phone</span>
+      <input
+        formControlName="phone"
+        type="tel"
+        placeholder="(123) 456-7890"
+        class="mt-1 p-2 border border-[#F3E8E8] rounded focus:outline-none focus:ring-2 focus:ring-[#D4A7A7]"
+      />
+    </label>
+  </div>
+
+  <!-- Brows Services -->
+  <fieldset class="border border-[#F3E8E8] rounded p-4 bg-white space-y-2">
+    <legend class="text-[#D4A7A7] font-medium">Brows Services</legend>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <label class="flex items-center space-x-2 p-2 rounded hover:bg-[#F3E8E8]">
+        <input
+          type="radio"
+          formControlName="browsService"
+          value="ombre-powder-brows"
+          class="text-[#D4A7A7] focus:ring-[#D4A7A7]"
+        />
+        <span>Ombré Powder Brows — $300</span>
+      </label>
+      <label class="flex items-center space-x-2 p-2 rounded hover:bg-[#F3E8E8]">
+        <input
+          type="radio"
+          formControlName="browsService"
+          value="microblading"
+          class="text-[#D4A7A7] focus:ring-[#D4A7A7]"
+        />
+        <span>Microblading — $300</span>
+      </label>
+      <label class="flex items-center space-x-2 p-2 rounded hover:bg-[#F3E8E8]">
+        <input
+          type="radio"
+          formControlName="browsService"
+          value="combo-brows"
+          class="text-[#D4A7A7] focus:ring-[#D4A7A7]"
+        />
+        <span>Combo Brows — $350</span>
+      </label>
+      <label class="flex items-center space-x-2 p-2 rounded hover:bg-[#F3E8E8]">
+        <input
+          type="radio"
+          formControlName="browsService"
+          value="brow-lamination"
+          class="text-[#D4A7A7] focus:ring-[#D4A7A7]"
+        />
+        <span>Brow Lamination — $30</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <!-- Lashes Services -->
+  <fieldset class="border border-[#F3E8E8] rounded p-4 bg-white space-y-2">
+    <legend class="text-[#D4A7A7] font-medium">Lashes Services</legend>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <label class="flex items-center space-x-2 p-2 rounded hover:bg-[#F3E8E8]">
+        <input
+          type="radio"
+          formControlName="lashesService"
+          value="classic-lashes"
+          class="text-[#D4A7A7] focus:ring-[#D4A7A7]"
+        />
+        <span>Classic Lashes — $65</span>
+      </label>
+      <label class="flex items-center space-x-2 p-2 rounded hover:bg-[#F3E8E8]">
+        <input
+          type="radio"
+          formControlName="lashesService"
+          value="hybrid-lashes"
+          class="text-[#D4A7A7] focus:ring-[#D4A7A7]"
+        />
+        <span>Hybrid Lashes — $75</span>
+      </label>
+      <label class="flex items-center space-x-2 p-2 rounded hover:bg-[#F3E8E8]">
+        <input
+          type="radio"
+          formControlName="lashesService"
+          value="volume-lashes"
+          class="text-[#D4A7A7] focus:ring-[#D4A7A7]"
+        />
+        <span>Volume Lashes — $85</span>
+      </label>
+      <label class="flex items-center space-x-2 p-2 rounded hover:bg-[#F3E8E8]">
+        <input
+          type="radio"
+          formControlName="lashesService"
+          value="mega-volume-lashes"
+          class="text-[#D4A7A7] focus:ring-[#D4A7A7]"
+        />
+        <span>Mega Volume Lashes — $95</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <!-- Additional message -->
+  <label class="flex flex-col">
+    <span class="text-sm font-medium text-[#D4A7A7]">Additional Message</span>
+    <textarea
+      formControlName="message"
+      rows="4"
+      placeholder="Anything else we should know?"
+      class="mt-1 p-2 border border-[#F3E8E8] rounded focus:outline-none focus:ring-2 focus:ring-[#D4A7A7] bg-[#fcfbfa]"
+    ></textarea>
+  </label>
+
+  <!-- Submit -->
+  <div class="text-right">
+    <button
+      type="submit"
+      [disabled]="bookingForm.invalid || loading"
+      class="bg-[#D4A7A7] hover:bg-[#C29595] text-white font-medium px-6 py-3 rounded-lg shadow disabled:opacity-50 transition"
+    >
+      {{ loading ? "Booking…" : "Book Appointment" }}
+    </button>
+  </div>
+</form>

@@ -35,7 +35,6 @@
   line-height: 1.7;
   letter-spacing: 0.15em;
   font-size: 17px;
-  text-align: left;
 
   font-weight: 500;
   font-style: normal;
@@ -43,11 +42,10 @@
 
 .txt {
   font-family: Assistant;
-  color: rgba(47, 47, 47, 1);
+
   line-height: 1.9;
   letter-spacing: 0.03em;
-  font-size: 16px;
-  text-align: left;
+
   font-weight: 300;
   font-style: normal;
 }

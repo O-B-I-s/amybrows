@@ -1,1 +1,553 @@
-<p>services works!</p>
+<section
+  class="min-h-[80vh] bg-cover bg-center bg-fixed content-center"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('\natali-hordiiuk-mmpk5n2-are-unsplash.jpg');
+  "
+>
+  <div
+    class="justify-center items-center p-20 gap-y-5 flex flex-col pr-100 pl-100"
+  >
+    <p class="sub-head">personalized treatments made just for You</p>
+    <h1 class="text-6xl title-font text-white text-center">
+      Choose from our range of expertly tailored services below
+    </h1>
+    <p class="txt text-white text-center text-lg">
+      Write an introduction of your business here. Everyone needs a friend.
+      Friends are the most valuable things in the world. When things happen -
+      enjoy them. They're little gifts. This is probably the greatest thing to
+      happen in my life - to be able to share this with you.
+    </p>
+  </div>
+</section>
+
+<section class="bg-white py-20 px-6 md:px-24 bg-color">
+  <div
+    class="flex flex-col md:flex-row items-center justify-center gap-8 relative"
+  >
+    <!-- Left text content -->
+    <div class="max-w-xl text-center md:text-left">
+      <h1
+        class="text-5xl md:text-6xl font-light text-gray-900 mb-6 relative inline-block"
+      >
+        <span class="font-medium">Brows</span>
+        <span
+          class="absolute bottom-0 left-0 w-full h-2 bg-rose-100 z-[-1]"
+        ></span>
+      </h1>
+
+      <p
+        class="text-sm font-semibold tracking-widest text-rose-400 mb-4 uppercase"
+      >
+        Portland Skincare + Facial Expert
+      </p>
+
+      <!-- Accordion Item 1 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(1)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Ombré Powder Brows</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 1 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 1
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            Soft, powdered look that mimics the appearance of makeup. $300
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 2 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(2)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Microblading</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 2 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 2
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            Natural-looking hair strokes that enhance the shape of your
+            brows.$300
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 3 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(3)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Combo Brows</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 3 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 3
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            A mix of microblading and shading for a fuller, defined look. $350
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 4 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(4)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Brow Lamination($30)</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 4 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 4
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            Fluffy, voluminous brows that last for weeks.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 5 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(5)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Lamination and tint</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 5 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 5
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">($60)</div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 6 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(6)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Brow tint</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 6 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 6
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">($40)</div>
+        </div>
+      </div>
+      <!-- Accordion Item 7 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(7)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Brow touch up</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 7 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 7
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            For brows originally done by us: $150 <br />
+
+            For foreign brows(brows done by another artist) $200 ps you will
+            need to send a picture of what your brows currently look like before
+            booking.
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="bg-rose-100 text-gray-900 font-medium text-sm tracking-wide px-10 py-4 rounded-full shadow hover:bg-rose-200 transition"
+      >
+        Book Now <span class="ml-2">⟶</span>
+      </button>
+    </div>
+
+    <!-- Right image + circular text -->
+    <div class="relative w-full max-w-sm">
+      <!-- Circular text -->
+      <svg
+        class="absolute -top-10 -right-10 w-48 h-48 text-rose-300"
+        viewBox="0 0 200 200"
+      >
+        <defs>
+          <path
+            id="circlePath"
+            d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"
+          />
+        </defs>
+        <text font-size="12" font-family="sans-serif" fill="currentColor">
+          <textPath xlink:href="#circlePath">
+            PORTLAND'S #1 SKINCARE EXPERT • PORTLAND'S #1 SKINCARE EXPERT •
+          </textPath>
+        </text>
+      </svg>
+
+      <img
+        src="pexels-victoria-strelkaph-11780719.jpg"
+        alt="Jessie"
+        class="w-full object-cover rounded-md shadow-md z-10 relative"
+      />
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col md:flex-row items-center justify-center gap-8 relative py-20"
+  >
+    <!-- Right image + circular text -->
+    <div class="relative w-full max-w-sm">
+      <!-- Circular text -->
+      <svg
+        class="absolute -top-10 -right-10 w-48 h-48 text-rose-300"
+        viewBox="0 0 200 200"
+      >
+        <defs>
+          <path
+            id="circlePath"
+            d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"
+          />
+        </defs>
+        <text font-size="12" font-family="sans-serif" fill="currentColor">
+          <textPath xlink:href="#circlePath">
+            PORTLAND'S #1 SKINCARE EXPERT • PORTLAND'S #1 SKINCARE EXPERT •
+          </textPath>
+        </text>
+      </svg>
+
+      <img
+        src="pexels-victoria-strelkaph-11780719.jpg"
+        alt="Jessie"
+        class="w-full object-cover rounded-md shadow-md z-10 relative"
+      />
+    </div>
+    <!-- Left text content -->
+    <div class="max-w-xl text-center md:text-left">
+      <h1
+        class="text-5xl md:text-6xl font-light text-gray-900 mb-6 relative inline-block"
+      >
+        <span class="font-medium">Lashes</span>
+        <span
+          class="absolute bottom-0 left-0 w-full h-2 bg-rose-100 z-[-1]"
+        ></span>
+      </h1>
+
+      <p
+        class="text-sm font-semibold tracking-widest text-rose-400 mb-4 uppercase"
+      >
+        Portland Skincare + Facial Expert
+      </p>
+
+      <!-- Accordion Item 1 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(1)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Classic Lashes($65)</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 1 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 1
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            Single extensions applied to each natural lash for a natural look
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 2 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(2)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Hybrid Lashes($75)</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 2 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 2
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            A mix of classic and volume lashes for a more textured look.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 3 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(3)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Volume Lashes($85)</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 3 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 3
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            Lighter extensions applied in fans for a fuller, dramatic effect.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 4 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(4)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Mega Volume Lashes ($95)</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 4 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 4
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            The fullest lash extensions for a bold, voluminous appearance.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 5 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(5)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Wet set lashes($65)</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 5 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 5
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            this style mimics the look of wet, freshly applied mascara. It’s a
+            trendy, lightweight, and defined lash look that gives a soft,
+            glossy, and spiky appearance.
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 6 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(6)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Wispy</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 6 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 6
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            an extra $15 on the set you chose
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Item 7 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(7)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Lash removal</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 7 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 7
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">$20</div>
+        </div>
+      </div>
+      <!-- Accordion Item 8 -->
+      <div class="border-b border-slate-200">
+        <button
+          (click)="toggleAccordion(8)"
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span>Fills</span>
+          <span class="text-slate-800 transition-transform duration-300">
+            <span [innerHTML]="activeIndex === 8 ? upSVG : downSVG"></span>
+          </span>
+        </button>
+        <div
+          #accordionContent1
+          [style.maxHeight]="
+            activeIndex === 8
+              ? getAccordionContent(1)?.scrollHeight + 'px'
+              : '0'
+          "
+          class="overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 text-sm text-slate-500">
+            $20 for all set must have at least 40% of your lashes left.
+          </div>
+        </div>
+      </div>
+      <button
+        class="bg-rose-100 text-gray-900 font-medium text-sm tracking-wide px-10 py-4 rounded-full shadow hover:bg-rose-200 transition"
+      >
+        Book Now <span class="ml-2">⟶</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="pl-60 pr-60">
+  <div class="flex flex-row gap-30 py-20 justify-center">
+    <div>
+      <h1 class="text-1xl text-center uppercase sub-head">
+        Before you book semipermanent brow appointment here are things to note:
+      </h1>
+      <p class="txt text-center">
+        You Must not be Pregnant or Nursing <br />Must not History of Keloids or
+        Hypertrophic scarring<br />
+        Must not be Diabetic (require doctor's clearance)<br />
+        Not going through Chemotherapy <br />You don’t have Viral infections or
+        diseases <br />No major heart problem<br />
+        Accutane in the past 6 months <br />Had Botox in the past 6 weeks
+        <br />Heart conditions, uncontrolled High Blood Pressure.<br />
+        Any treatment, medication, or illness that compromises the immune system
+        / healing would make you NOT a good candidate for semipermanent brows.
+      </p>
+    </div>
+    <div>
+      <h1 class="text-1xl uppercase text-center sub-head">
+        48 hours before your appointment please:
+      </h1>
+      <p class="txt text-center">
+        Avoid Caffeine or Alcohol 24-48hrs of your appointment. <br />
+        Avoid skincare or oily products before coming and no facials 2weeks
+        <br />
+        prior to appointment. Avoid Exercise day of your appointment.
+      </p>
+    </div>
+  </div>
+</section>

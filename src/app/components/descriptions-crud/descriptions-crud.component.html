@@ -1,0 +1,42 @@
+<div class="max-w-2xl mx-auto p-6 bg-white rounded shadow space-y-6">
+  <h2 class="text-xl font-semibold">Descriptions</h2>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="save()"
+    class="grid grid-cols-1 sm:grid-cols-2 gap-4"
+  >
+    <input
+      formControlName="title"
+      placeholder="Title"
+      class="p-2 border rounded"
+    />
+    <input
+      formControlName="item"
+      placeholder="Item"
+      class="p-2 border rounded"
+    />
+    <button
+      type="submit"
+      class="col-span-full bg-pink-200 hover:bg-pink-300 py-2 rounded disabled:opacity-50"
+      [disabled]="form.invalid"
+    >
+      {{ editing ? "Update" : "Create" }}
+    </button>
+  </form>
+
+  <ul class="space-y-2">
+    <li
+      *ngFor="let d of list"
+      class="flex justify-between p-2 bg-gray-50 rounded"
+    >
+      <div>
+        <strong>{{ d.title }}</strong> — {{ d.item }}
+      </div>
+      <div class="space-x-2">
+        <button (click)="edit(d)" class="text-blue-500">Edit</button>
+        <button (click)="delete(d.id)" class="text-red-500">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

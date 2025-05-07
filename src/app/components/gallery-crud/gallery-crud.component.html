@@ -1,0 +1,50 @@
+<div class="max-w-2xl mx-auto p-6 bg-white rounded shadow space-y-6">
+  <h2 class="text-xl font-semibold">Gallery</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()" class="space-y-4">
+    <div class="flex gap-4">
+      <label class="flex-1">
+        Before
+        <input
+          type="file"
+          (change)="fileChange('before', $event)"
+          class="block w-full mt-1"
+        />
+      </label>
+      <label class="flex-1">
+        After
+        <input
+          type="file"
+          (change)="fileChange('after', $event)"
+          class="block w-full mt-1"
+        />
+      </label>
+    </div>
+    <button
+      type="submit"
+      class="bg-pink-200 hover:bg-pink-300 py-2 px-4 rounded disabled:opacity-50"
+      [disabled]="!form.value.before && !form.value.after"
+    >
+      {{ editingId ? "Update" : "Upload" }}
+    </button>
+  </form>
+
+  <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <li *ngFor="let g of list" class="p-4 bg-gray-50 rounded space-y-2">
+      <img
+        [src]="g.beforeImageUrl"
+        alt="Before"
+        class="w-full h-32 object-cover rounded-md"
+      />
+      <img
+        [src]="g.afterImageUrl"
+        alt="After"
+        class="w-full h-32 object-cover rounded-md"
+      />
+      <div class="flex justify-end gap-2">
+        <button (click)="edit(g)" class="text-blue-500">Edit</button>
+        <button (click)="delete(g.id)" class="text-red-500">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,71 @@
+<div class="max-w-3xl mx-auto p-6 bg-white rounded shadow space-y-6">
+  <h2 class="text-xl font-semibold">Services</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()" class="space-y-4">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <input
+        formControlName="title"
+        placeholder="Title"
+        class="p-2 border rounded"
+      />
+      <input
+        formControlName="subhead"
+        placeholder="Subhead"
+        class="p-2 border rounded"
+      />
+    </div>
+
+    <input type="file" (change)="fileChange($event)" class="p-2" />
+
+    <!-- Checkbox list -->
+    <div>
+      <span class="text-sm font-medium block mb-2">Descriptions</span>
+      <div class="grid sm:grid-cols-2 gap-2">
+        <label
+          *ngFor="let d of descs"
+          class="flex items-center space-x-2 p-2 border rounded hover:bg-gray-50"
+          [class.opacity-50]="
+            getAllAssignedDescIds().has(d.id) && !isCurrentlyEditing(d.id)
+          "
+        >
+          <input
+            type="checkbox"
+            [disabled]="
+              getAllAssignedDescIds().has(d.id) && !isCurrentlyEditing(d.id)
+            "
+            [checked]="descriptionIds.value.includes(d.id)"
+            (change)="onCheckboxChange($event, d.id)"
+            class="form-checkbox h-4 w-4 text-rose-500"
+          />
+          <span class="text-gray-700">{{ d.title }}</span>
+        </label>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="bg-pink-200 hover:bg-pink-300 py-2 px-4 rounded disabled:opacity-50"
+      [disabled]="form.invalid"
+    >
+      {{ editingId ? "Update" : "Create" }}
+    </button>
+  </form>
+
+  <ul class="space-y-2">
+    <li
+      *ngFor="let s of list"
+      class="p-4 bg-gray-50 rounded flex justify-between"
+    >
+      <div>
+        <strong>{{ s.title }}</strong> — {{ s.subhead }}
+        <div class="text-sm text-gray-500">
+          Descriptions: {{ s.descriptions.length }}
+        </div>
+      </div>
+      <div class="space-x-2">
+        <button (click)="edit(s)" class="text-blue-500">Edit</button>
+        <button (click)="delete(s.id)" class="text-red-500">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

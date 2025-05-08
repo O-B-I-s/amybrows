@@ -1,25 +1,37 @@
 <!-- Hero section -->
-<section class="flex min-h-[80vh] bg-color">
-  <div class="justify-center p-20 gap-y-5 flex flex-col w-[45%]">
+<section class="flex flex-col md:flex-row min-h-[80vh] bg-color">
+  <!-- Text Content - comes second on mobile -->
+  <div
+    class="md:justify-center p-8 md:p-20 gap-y-5 flex flex-col md:w-[45%] order-2 md:order-1"
+  >
     <p class="sub-head">personalized treatments made just for You</p>
-    <h1 class="text-6xl title-font">Elevate Your Beauty, <i>Naturally</i></h1>
+    <h1 class="text-4xl md:text-6xl title-font">
+      Elevate Your Beauty, <i>Naturally</i>
+    </h1>
     <p class="txt">
-      Write an introduction of your business here. Everyone needs a friend.
-      Friends are the most valuable things in the world. When things happen -
-      enjoy them. They're little gifts. This is probably the greatest thing to
-      happen in my life - to be able to share this with you.
+      At Amybrows, we specialize in semi-permanent beauty makeup to make your
+      daily routine easier and more stylish. Choose from our range of expertly
+      tailored services <br />
+      <span class="font-bold"
+        >Ready to transform your brows and lashes? Book Now.</span
+      >
     </p>
-    <div class="flex flex-row justify-center">
-      <button
+    <div class="flex flex-row justify-center md:justify-start">
+      <a
+        [routerLink]="['/appointment']"
         class="btn title-font px-7 py-3 hover:bg-opacity-90 transition-colors mt-8 w-fit"
         aria-label="Our Services"
         type="button"
       >
         Book Appointment
-      </button>
+      </a>
     </div>
   </div>
-  <div class="w-[55%] self-start h-[80vh]">
+
+  <!-- Image - comes first on mobile -->
+  <div
+    class="md:w-[55%] self-start h-[50vh] md:h-[80vh] w-full order-1 md:order-2"
+  >
     <img
       src="IMG_3769.jpeg"
       alt="img"
@@ -29,17 +41,18 @@
 </section>
 <!-- Hero section ends -->
 
-<section class="pr-100 pl-100 pt-10">
+<section class="px-4 md:px-24 pt-10">
   <div class="p-20 gap-y-5 flex flex-col place-items-center">
-    <h1 class="sub-head">let's ENHANCE YOUR NATURAL BEAUTY</h1>
+    <h1 class="sub-head">Why Choose Amybrows</h1>
     <p class="txt text-justify">
-      Write your mission statement or an introduction to your business right
-      here. You are only limited by your imagination. Making all those little
-      fluffies that live in the clouds. By now you should be quite happy about
-      what's happening here. Now then, let's play. Automatically, all of these
-      beautiful, beautiful things will happen. Exercising the imagination,
-      experimenting with talents, being creative; these things, to me, are truly
-      the windows to your soul.
+      I’m dedicated to providing a personalized experience in beauty,
+      specializing in lashes and brows. Every treatment is tailored to enhance
+      your natural features while complementing your unique style. Whether it’s
+      a precise brow shaping, a lash lift for effortless elegance, or extensions
+      for added volume, my approach combines artistry with expert technique.
+      With high-quality products and meticulous care, I ensure results that are
+      both stunning and long-lasting. The goal? To leave you feeling confident,
+      radiant, and authentically you
     </p>
   </div>
 </section>
@@ -50,43 +63,49 @@
   </h1>
   <div class="flex flex-col md:flex-row justify-center items-center gap-8 px-4">
     <!-- Card 1 -->
-    <div class="relative w-72 h-[420px] overflow-hidden shadow-lg">
-      <img
-        src="pexels-victoria-strelkaph-10177098.jpg"
-        alt="Gallery"
-        class="w-full h-full object-cover"
-      />
-      <div class="absolute bottom-4 left-4 text-white">
-        <p class="text-sm tracking-wide">EXPLORE</p>
-        <h2 class="text-2xl font-light">THE GALLERY</h2>
+    <a [routerLink]="['/galleries']">
+      <div class="relative w-72 h-[420px] overflow-hidden shadow-lg">
+        <img
+          src="pexels-victoria-strelkaph-10177098.jpg"
+          alt="Gallery"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute bottom-4 left-4 text-white">
+          <p class="text-sm tracking-wide">EXPLORE</p>
+          <h2 class="text-2xl font-light">THE GALLERY</h2>
+        </div>
       </div>
-    </div>
+    </a>
 
     <!-- Card 2 -->
-    <div class="relative w-95 h-[500px] overflow-hidden shadow-lg">
-      <img
-        src="pexels-alekke-blazhin-8450297.jpg"
-        alt="Our Services"
-        class="w-full h-full object-cover"
-      />
-      <div class="absolute bottom-4 left-4 text-white">
-        <p class="text-sm tracking-wide">EXPLORE</p>
-        <h2 class="text-2xl font-light">OUR SERVICES</h2>
+    <a [routerLink]="['/services']">
+      <div class="relative w-95 h-[500px] overflow-hidden shadow-lg">
+        <img
+          src="pexels-alekke-blazhin-8450297.jpg"
+          alt="Our Services"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute bottom-4 left-4 text-white">
+          <p class="text-sm tracking-wide">EXPLORE</p>
+          <h2 class="text-2xl font-light">OUR SERVICES</h2>
+        </div>
       </div>
-    </div>
+    </a>
 
     <!-- Card 3 -->
-    <div class="relative w-72 h-[420px] overflow-hidden shadow-lg">
-      <img
-        src="IMG_3150.jpeg"
-        alt="About Us"
-        class="w-full h-full object-cover"
-      />
-      <div class="absolute bottom-4 left-4 text-white">
-        <p class="text-sm tracking-wide">LEARN MORE</p>
-        <h2 class="text-2xl font-light">ABOUT US</h2>
+    <a [routerLink]="['/contact']">
+      <div class="relative w-72 h-[420px] overflow-hidden shadow-lg">
+        <img
+          src="IMG_3150.jpeg"
+          alt="About Us"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute bottom-4 left-4 text-white">
+          <p class="text-sm tracking-wide">LEARN MORE</p>
+          <h2 class="text-2xl font-light">CONTACT ME</h2>
+        </div>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -99,31 +118,31 @@
       <h1
         class="text-5xl md:text-6xl font-light text-gray-900 mb-6 relative inline-block"
       >
-        Hi There, I'm <span class="font-medium">Jessie!</span>
+        Hi There, I'm <span class="font-medium">Amara!</span>
         <span
           class="absolute bottom-0 left-0 w-full h-2 bg-rose-100 z-[-1]"
         ></span>
       </h1>
 
-      <p
-        class="text-sm font-semibold tracking-widest text-rose-400 mb-4 uppercase"
-      >
-        Portland Skincare + Facial Expert
-      </p>
-
       <p class="text-gray-700 leading-relaxed mb-10">
-        Write a short introduction about yourself here. Everyone needs a friend.
-        Friends are the most valuable things in the world. When things happen –
-        enjoy them. They're little gifts. This is probably the greatest thing to
-        happen in my life – to be able to share this with you. Everyone needs a
-        friend. Friends are the most valuable things in the world.
+        A brow artist and lash tech passionate about helping you achieve
+        beautiful, low-maintenance beauty every day. Based in Calgary, I’ve been
+        perfecting the art of semi-permanent brows and lashes to give you a
+        flawless look that lasts. <br />
+        <span class="font-bold"
+          >I have 2+ years of experience in this industry, with over 4
+          certification from local and international brands - and have
+          serviced</span
+        >
+        over 150 clients.
       </p>
 
-      <button
+      <a
+        [routerLink]="['/contact']"
         class="bg-rose-100 text-gray-900 font-medium text-sm tracking-wide px-10 py-4 rounded-full shadow hover:bg-rose-200 transition"
       >
         GET TO KNOW ME <span class="ml-2">⟶</span>
-      </button>
+      </a>
     </div>
 
     <!-- Right image + circular text -->
@@ -139,11 +158,6 @@
             d="M100,100 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"
           />
         </defs>
-        <text font-size="12" font-family="sans-serif" fill="currentColor">
-          <textPath xlink:href="#circlePath">
-            PORTLAND'S #1 SKINCARE EXPERT • PORTLAND'S #1 SKINCARE EXPERT •
-          </textPath>
-        </text>
       </svg>
 
       <img
@@ -155,31 +169,35 @@
   </div>
 </section>
 
-<section class="flex min-h-[80vh] bg-color">
-  <div class="w-[55%] self-start h-[80vh]">
+<section class="flex flex-col md:flex-row min-h-[80vh] bg-color">
+  <div
+    class="md:w-[55%] self-start h-[50vh] md:h-[80vh] w-full order-1 md:order-2"
+  >
     <img
       src="pure-eye-makeup-with-brown-eyeshadow.jpg"
       alt="img"
       class="w-full h-full object-cover rounded shadow"
     />
   </div>
-  <div class="justify-center p-20 gap-y-5 flex flex-col w-[45%]">
+  <div
+    class="md:justify-center p-8 md:p-20 gap-y-5 flex flex-col md:w-[45%] order-2 md:order-1"
+  >
     <p class="sub-head">personalized treatments made just for You</p>
-    <h1 class="text-6xl title-font">Elevate Your Beauty, <i>Naturally</i></h1>
+    <h1 class="text-6xl title-font">My Mission</h1>
     <p class="txt">
-      Write an introduction of your business here. Everyone needs a friend.
-      Friends are the most valuable things in the world. When things happen -
-      enjoy them. They're little gifts. This is probably the greatest thing to
-      happen in my life - to be able to share this with you.
+      At Amybrows, I believe in making beauty simple. My goal is to give you
+      flawless brows and lashes so that you can wake up and go, saving you time
+      each morning.
     </p>
     <div class="flex flex-row justify-center">
-      <button
+      <a
+        [routerLink]="['/appointment']"
         class="btn title-font px-7 py-3 hover:bg-opacity-90 transition-colors mt-8 w-fit"
         aria-label="Our Services"
         type="button"
       >
         Book Appointment
-      </button>
+      </a>
     </div>
   </div>
 </section>

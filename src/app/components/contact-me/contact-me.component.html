@@ -1,1 +1,133 @@
-<p>contact-me works!</p>
+<!-- Hero -->
+<section
+  class="flex min-h-[80vh] bg-cover bg-center bg-fixed items-center justify-center"
+  style="
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url('natali-hordiiuk-mmpk5n2-are-unsplash.jpg');
+  "
+>
+  <div class="text-center px-6">
+    <h1 class="text-5xl sm:text-6xl font-light text-white mb-2 title-font">
+      Get In Touch
+    </h1>
+    <p class="text-rose-200 uppercase tracking-wide sub-head">
+      I’d love to hear from you!
+    </p>
+  </div>
+</section>
+
+<!-- Main content -->
+<section class="bg-[#fcfbfa] py-16 px-4 sm:px-8 md:px-24">
+  <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <!-- Contact Info -->
+    <div class="space-y-6">
+      <h2 class="text-3xl font-semibold text-gray-900">Contact Details</h2>
+      <p class="text-gray-700 txt">
+        Have questions or want to book? Reach out via any of the methods below.
+      </p>
+
+      <ul class="space-y-4">
+        <li class="flex items-start gap-4">
+          <i class="fa-solid fa-envelope text-2xl text-rose-300 mt-1"></i>
+          <a
+            href="mailto:amybrows@gmail.com"
+            class="text-gray-800 hover:text-rose-500"
+          >
+            amybrows&#64;gmail.com
+          </a>
+        </li>
+        <li class="flex items-start gap-4">
+          <i class="fa-solid fa-phone text-2xl text-rose-300 mt-1"></i>
+          <a href="tel:+18257359190" class="text-gray-800 hover:text-rose-500">
+            (825) 735-9190
+          </a>
+        </li>
+        <li class="flex items-start gap-4">
+          <i class="fa-solid fa-location-dot text-2xl text-rose-300 mt-1"></i>
+          <span class="text-gray-800">
+            Home-based studio in 717 Nolan Hill BLVD, NW Calgary
+          </span>
+        </li>
+      </ul>
+
+      <div class="flex space-x-6 pt-4">
+        <a
+          href="https://instagram.com/_amybrows"
+          target="_blank"
+          aria-label="Instagram"
+          class="text-2xl text-rose-300 hover:text-rose-500"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a
+          href="https://facebook.com/amybrowsamybrows"
+          target="_blank"
+          aria-label="Facebook"
+          class="text-2xl text-rose-300 hover:text-rose-500"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
+        <a
+          href="https://tiktok.com/@_anybrows"
+          target="_blank"
+          aria-label="TikTok"
+          class="text-2xl text-rose-300 hover:text-rose-500"
+          ><i class="fa-brands fa-tiktok"></i
+        ></a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="bg-white p-8 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-medium text-gray-900 mb-6">Send me a message</h2>
+      <form class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1"
+            >Name</label
+          >
+          <input
+            type="text"
+            placeholder="Your name"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-200"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1"
+            >Email</label
+          >
+          <input
+            type="email"
+            placeholder="you@example.com"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-200"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1"
+            >Subject</label
+          >
+          <input
+            type="text"
+            placeholder="Subject"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-200"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1"
+            >Message</label
+          >
+          <textarea
+            rows="4"
+            placeholder="Write your message..."
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-200 resize-none"
+          ></textarea>
+        </div>
+        <div class="text-right">
+          <button
+            type="submit"
+            class="bg-rose-100 text-gray-900 font-medium px-6 py-3 rounded-full hover:bg-rose-200 transition"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -59,7 +59,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "proxyConfig": "proxy.conf.json"
+            "proxyConfig": "proxy.conf.json",
+            "outputPath": "dist/beauty-app/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
             "production": {
@@ -85,7 +88,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"],
+            "styles": [
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
+            ],
             "scripts": []
           }
         }

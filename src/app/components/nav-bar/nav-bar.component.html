@@ -1,0 +1,191 @@
+<nav class="fixed inset-x-0 top-0 z-50 bg-white shadow-md px-6 py-4">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Brand -->
+    <a routerLink="/home" class="text-2xl font-bold text-gray-900">AmyBrows</a>
+    <!-- Social Section -->
+    <div
+      class="w-full md:w-1/3 flex flex-col items-center pl-20 md:items-start space-y-4"
+    >
+      <div class="flex space-x-6">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="text-2xl text-rose-300 hover:text-rose-500"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          class="text-2xl text-rose-300 hover:text-rose-500"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a
+          href="https://www.tiktok.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          class="text-2xl text-rose-300 hover:text-rose-500"
+        >
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hamburger (shown on sm) -->
+    <button
+      class="md:hidden text-gray-700"
+      aria-label="Toggle menu"
+      (click)="toggleMenu()"
+    >
+      <svg
+        *ngIf="!mobileOpen"
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+      <svg
+        *ngIf="mobileOpen"
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+
+    <!-- Desktop menu -->
+    <ul
+      *ngIf="!mobileOpen"
+      class="hidden md:flex space-x-6 text-gray-700 font-medium items-center"
+    >
+      <ng-container *ngIf="!auth.isLoggedIn(); else loggedIn">
+        <li><a routerLink="/home" class="hover:text-rose-500">Home</a></li>
+        <li>
+          <a routerLink="/services" class="hover:text-rose-500">Services</a>
+        </li>
+        <li>
+          <a routerLink="/galleries" class="hover:text-rose-500">Gallery</a>
+        </li>
+        <li>
+          <a routerLink="/contact" class="hover:text-rose-500">Contact Me</a>
+        </li>
+        <li>
+          <a
+            routerLink="/appointment"
+            class="px-4 py-2 bg-rose-100 rounded-full hover:bg-rose-200"
+            >Book Appointment</a
+          >
+        </li>
+      </ng-container>
+      <ng-template #loggedIn>
+        <li><a routerLink="/home" class="hover:text-rose-500">Home</a></li>
+        <li>
+          <a routerLink="/services-crud" class="hover:text-rose-500"
+            >Add Services</a
+          >
+        </li>
+        <li>
+          <a routerLink="/descriptions" class="hover:text-rose-500"
+            >Add Descriptions</a
+          >
+        </li>
+        <li>
+          <a routerLink="/gallery" class="hover:text-rose-500">Add Gallery</a>
+        </li>
+        <li>
+          <button
+            (click)="logout()"
+            class="px-4 py-2 bg-rose-100 rounded-full hover:bg-rose-200"
+          >
+            Logout
+          </button>
+        </li>
+      </ng-template>
+    </ul>
+  </div>
+
+  <!-- Mobile menu (absolute overlay) -->
+  <div
+    *ngIf="mobileOpen"
+    class="md:hidden absolute top-full left-0 w-full bg-white shadow-md z-50"
+  >
+    <div class="px-6 py-4 space-y-4">
+      <ng-container *ngIf="!auth.isLoggedIn(); else mobileLoggedIn">
+        <a
+          routerLink="/home"
+          class="block px-4 py-2 rounded hover:bg-rose-50 text-gray-700 hover:text-rose-500"
+          >Home</a
+        >
+        <a
+          routerLink="/services"
+          class="block px-4 py-2 rounded hover:bg-rose-50 text-gray-700 hover:text-rose-500"
+          >Services</a
+        >
+        <a
+          routerLink="/galleries"
+          class="block px-4 py-2 rounded hover:bg-rose-50 text-gray-700 hover:text-rose-500"
+          >Gallery</a
+        >
+        <a
+          routerLink="/appointment"
+          class="block px-4 py-2 rounded hover:bg-rose-50 text-gray-700 hover:text-rose-500"
+          >Book Appointment</a
+        >
+        <a
+          routerLink="/login"
+          class="block px-4 py-2 bg-rose-100 rounded-full hover:bg-rose-200 max-w-max"
+          >Login</a
+        >
+      </ng-container>
+
+      <ng-template #mobileLoggedIn>
+        <a
+          routerLink="/home"
+          class="block px-4 py-2 rounded hover:bg-rose-50 text-gray-700 hover:text-rose-500"
+          >Home</a
+        >
+        <a
+          routerLink="/services-crud"
+          class="block px-4 py-2 rounded hover:bg-rose-50 text-gray-700 hover:text-rose-500"
+          >Add Services</a
+        >
+        <a
+          routerLink="/descriptions"
+          class="block px-4 py-2 rounded hover:bg-rose-50 text-gray-700 hover:text-rose-500"
+          >Add Descriptions</a
+        >
+        <a
+          routerLink="/gallery"
+          class="block px-4 py-2 rounded hover:bg-rose-50 text-gray-700 hover:text-rose-500"
+          >Add Gallery</a
+        >
+        <button
+          (click)="logout()"
+          class="block px-4 py-2 bg-rose-100 rounded-full hover:bg-rose-200 max-w-max"
+        >
+          Logout
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</nav>

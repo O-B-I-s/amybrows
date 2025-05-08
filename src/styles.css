@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+
+.gallery-item {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
 /* * {
   font-family: "Merchant" !important;
 } */

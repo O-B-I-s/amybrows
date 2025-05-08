@@ -1,6 +1,13 @@
 {
   "hosting": {
     "public": "dist/amybrows/browser",
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "/home",
+        "type": 301
+      }
+    ],
     "rewrites": [
       {
         "source": "**",

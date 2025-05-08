@@ -18,6 +18,17 @@
 //   response.send("Hello from Firebase!");
 // });
 const functions = require("firebase-functions");
-const expressApp = require(`${__dirname}/dist/amybrows/server/main.js`).app;
+const express = require("express");
+const { ngExpressEngine } = require("@nguniversal/express-engine");
+const { AppServerModule } = require("./dist/amybrows/server/main");
+const app = express();
 
-exports.ssr = functions.https.onRequest(expressApp);
+app.engine("html", ngExpressEngine({ bootstrap: AppServerModule }));
+app.set("view engine", "html");
+app.set("views", "dist/amybrows/browser");
+
+app.get("*", (req, res) => {
+  res.render("index", { req });
+});
+
+exports.ssr = functions.https.onRequest(app);

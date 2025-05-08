@@ -59,10 +59,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "proxyConfig": "proxy.conf.json",
-            "outputPath": "dist/beauty-app/server",
-            "main": "src/main.server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

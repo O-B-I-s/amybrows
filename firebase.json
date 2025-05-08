@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "dist/amybrows/browser",
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "ssr"
+      }
+    ]
+  }
+}

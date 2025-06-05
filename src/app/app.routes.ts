@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { authGuard } from '../../guard/auth.guard';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
+import { AdminAvailabilityComponent } from './components/admin-availability/admin-availability.component';
 
 export const routes: Routes = [
   { path: 'appointment', component: BookAppointmentComponent },
@@ -35,6 +36,12 @@ export const routes: Routes = [
     component: GalleryCrudComponent,
     canActivate: [authGuard],
   },
+  {
+    path: 'availability',
+    component: AdminAvailabilityComponent,
+    canActivate: [authGuard],
+  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
   { path: 'amybrows.web.app', redirectTo: 'home', pathMatch: 'full' },
 ];

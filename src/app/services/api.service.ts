@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  private readonly API = 'https://localhost:7142/api';
+  private readonly API = environment.apiUrl;
   constructor(protected http: HttpClient) {}
 
   protected get<T>(url: string) {

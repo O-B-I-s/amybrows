@@ -1,0 +1,132 @@
+<!-- ==== FORM: Set Availability for a Specific Date ==== -->
+<div class="p-4 space-y-6 max-w-2xl mx-auto">
+  <h2 class="text-2xl font-bold">Set Availability for a Specific Date</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <!-- Datepicker (Angular Material) -->
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Select date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="selectedDate"
+        placeholder="Choose a date"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('selectedDate')?.hasError('required')">
+        A date is required.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Time range fields -->
+    <div class="flex space-x-4 items-center">
+      <div class="flex flex-col flex-1">
+        <label class="font-medium">Start Time</label>
+        <input
+          type="time"
+          formControlName="startTime"
+          class="border px-2 py-1 rounded"
+        />
+        <small
+          class="text-red-600"
+          *ngIf="form.get('startTime')?.hasError('required')"
+        >
+          Start time is required.
+        </small>
+      </div>
+
+      <div class="flex flex-col flex-1">
+        <label class="font-medium">End Time</label>
+        <input
+          type="time"
+          formControlName="endTime"
+          class="border px-2 py-1 rounded"
+        />
+        <small
+          class="text-red-600"
+          *ngIf="form.get('endTime')?.hasError('required')"
+        >
+          End time is required.
+        </small>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="mt-6 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      [disabled]="form.invalid"
+    >
+      Save Availability
+    </button>
+  </form>
+</div>
+
+<!-- ==== LIST: All Availability Slots ==== -->
+<div class="max-w-3xl mx-auto p-4 space-y-4">
+  <h2 class="text-2xl font-bold">All Availability Slots</h2>
+
+  <!-- Loading indicator -->
+  <div *ngIf="loading" class="text-gray-600">Loading…</div>
+
+  <!-- Error banner -->
+  <div *ngIf="errorMessage" class="text-red-600">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!loading && availabilitySlots.length === 0" class="text-gray-700">
+    There are currently no availability slots.
+  </div>
+
+  <!-- Render each slot -->
+  <div *ngIf="!loading && availabilitySlots.length > 0" class="space-y-6">
+    <ng-container *ngFor="let slot of availabilitySlots">
+      <div class="p-4 border rounded-lg shadow-sm">
+        <!-- Date header + Delete button -->
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="text-lg font-semibold">
+            {{ slot.date | date : "fullDate" }}
+          </h3>
+          <button
+            mat-button
+            color="warn"
+            class="text-sm"
+            (click)="deleteSlot(slot.id)"
+          >
+            Delete
+          </button>
+        </div>
+
+        <!-- TimeSlots: only if array exists & length > 0 -->
+        <div
+          *ngIf="slot.timeSlots && slot.timeSlots.length > 0"
+          class="space-y-1"
+        >
+          <div
+            *ngFor="let ts of slot.timeSlots"
+            class="flex justify-between items-center"
+          >
+            <span>{{ ts.startTime }} – {{ ts.endTime }}</span>
+            <span
+              [ngClass]="{
+                'text-green-600': !ts.isTaken,
+                'text-red-600': ts.isTaken
+              }"
+            >
+              {{ ts.isTaken ? "Taken" : "Available" }}
+            </span>
+          </div>
+        </div>
+
+        <!-- If timeSlots exists but is empty -->
+        <div
+          *ngIf="slot.timeSlots && slot.timeSlots.length === 0"
+          class="text-gray-500"
+        >
+          No time slots for this date.
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

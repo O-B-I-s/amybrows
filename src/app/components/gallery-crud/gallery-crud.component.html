@@ -32,12 +32,12 @@
   <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <li *ngFor="let g of list" class="p-4 bg-gray-50 rounded space-y-2">
       <img
-        [src]="g.beforeImageUrl"
+        [src]="apiUrl + g.beforeImageUrl"
         alt="Before"
         class="w-full h-32 object-cover rounded-md"
       />
       <img
-        [src]="g.afterImageUrl"
+        [src]="apiUrl + g.afterImageUrl"
         alt="After"
         class="w-full h-32 object-cover rounded-md"
       />

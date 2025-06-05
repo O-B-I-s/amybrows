@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GalleryItem } from '../../models';
 import { GalleryService } from '../../services/gallery.service';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environment/environment';
 
 @Component({
   selector: 'app-gallery-crud',
@@ -14,6 +15,7 @@ export class GalleryCrudComponent implements OnInit {
   list: GalleryItem[] = [];
   form: FormGroup;
   editingId?: number;
+  apiUrl = environment.apiUrl.replace('/api', '');
 
   constructor(private fb: FormBuilder, private gallerySvc: GalleryService) {
     this.form = this.fb.group({

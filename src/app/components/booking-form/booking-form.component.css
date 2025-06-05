@@ -1,0 +1,24 @@
+/* Add this to your component's CSS file */
+.custom-datepicker-panel {
+  background-color: #fcfbfa !important; /* Match your form background */
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mat-calendar-table-header,
+.mat-calendar-body-label {
+  color: #d4a7a7 !important; /* Your accent color */
+}
+
+.mat-calendar-body-cell-content {
+  color: #333 !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: #d4a7a7 !important; /* Selected date color */
+  color: white !important;
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: #d4a7a7 !important; /* Today's date indicator */
+}

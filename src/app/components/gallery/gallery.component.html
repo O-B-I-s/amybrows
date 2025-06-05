@@ -32,7 +32,7 @@
     >
       <div class="relative aspect-square">
         <img
-          [src]="g.beforeImageUrl"
+          [src]="apiUrl + g.beforeImageUrl"
           alt="Before"
           class="w-full h-full object-cover"
           loading="lazy"
@@ -41,7 +41,7 @@
       </div>
       <div class="relative aspect-square">
         <img
-          [src]="g.afterImageUrl"
+          [src]="apiUrl + g.afterImageUrl"
           alt="After"
           class="w-full h-full object-cover"
           loading="lazy"

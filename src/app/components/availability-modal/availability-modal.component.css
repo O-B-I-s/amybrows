@@ -1,0 +1,15 @@
+/* Add any custom styling you like. Below is just basic spacing tweaks. */
+
+:host {
+  display: block;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+h3 {
+  color: #333;
+}
+
+li {
+  cursor: default;
+}

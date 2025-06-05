@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://localhost:7142/api/auth';
+  private apiUrl = environment.apiUrl + '/auth';
 
   constructor(
     private http: HttpClient,

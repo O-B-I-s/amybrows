@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BookingRequest, BookingResponse } from '../models';
+import { environment } from '../../environment/environment';
 
 export interface Appointment {
   name: string;
@@ -14,11 +16,16 @@ export interface Appointment {
   providedIn: 'root',
 })
 export class AppointmentService {
-  private API = '/api/appointments';
+  private apiUrl = environment.apiUrl + '/appointments';
   constructor(private http: HttpClient) {}
 
-  bookAppointment(data: Appointment): Observable<any> {
-    // your backend must handle sending confirmation emails
-    return this.http.post(this.API, data);
+  /** Client: make a booking */
+  book(request: BookingRequest): Observable<BookingResponse> {
+    return this.http.post<BookingResponse>(this.apiUrl, request);
+  }
+
+  /** Admin: list all bookings (optional) */
+  getAll(): Observable<BookingResponse[]> {
+    return this.http.get<BookingResponse[]>(this.apiUrl);
   }
 }

@@ -9,6 +9,7 @@ import {
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ServiceService } from '../../services/service.service';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environment/environment';
 
 @Component({
   selector: 'app-services',
@@ -30,6 +31,7 @@ export class ServicesComponent implements OnInit {
   downSVG: SafeHtml;
   upSVG: SafeHtml;
   active: { [svcIdx: number]: number | null } = {};
+  apiUrl = environment.apiUrl.replace('/api', '');
 
   constructor(private sanitizer: DomSanitizer, private svc: ServiceService) {
     this.downSVG = this.sanitizer.bypassSecurityTrustHtml(`

@@ -1,7 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+/* Add to styles.css */
+
 html {
   scroll-behavior: smooth;
+}
+/* Add to your global styles.css */
+.mat-datepicker-content {
+  background-color: #fcfbfa !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mat-calendar {
+  background-color: transparent !important;
+}
+
+.mat-datepicker-toggle-active {
+  color: #d4a7a7 !important;
 }
 
 .gallery-item {
@@ -9,6 +26,23 @@ html {
   backface-visibility: hidden;
   perspective: 1000px;
 }
+
+@media (max-width: 768px) {
+  .mat-datepicker-content {
+    transform: scale(0.95);
+    transform-origin: top center;
+  }
+
+  .mat-calendar {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .mat-calendar-table {
+    min-width: unset !important;
+  }
+}
+
 /* * {
   font-family: "Merchant" !important;
 } */

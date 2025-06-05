@@ -12,6 +12,10 @@
       {
         "source": "**",
         "function": "ssr"
+      },
+      {
+        "source": "/uploads/**",
+        "destination": "https://localhost:7142/uploads/:splat"
       }
     ]
   }
